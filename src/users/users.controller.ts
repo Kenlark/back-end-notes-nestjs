@@ -16,14 +16,14 @@ export class UsersController {
   // List route for getting all users
   @Get("list")
   @HttpCode(HttpStatus.OK) // Code HTTP 200
-  async getAllUsers(): Promise<User[]> {
+  async getAllUsers() {
     return this.usersService.findAll();
   }
 
   // Create route for creating a new user
   @Post("create")
   @HttpCode(HttpStatus.CREATED)
-  async createUser(@Body() user: Partial<User>): Promise<User> {
+  async createUser(@Body() user: Partial<User>) {
     return this.usersService.create(user);
   }
 }
