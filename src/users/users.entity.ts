@@ -5,7 +5,7 @@ export class User {
   @PrimaryGeneratedColumn() // Auto-incrementing primary key
   id: number;
 
-  @Column({ unique: true }) // Unique username
+  @Column() // Unique username
   username: string;
 
   @Column() // Password column
