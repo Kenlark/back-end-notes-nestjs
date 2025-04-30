@@ -9,7 +9,7 @@ export class UsersService {
     @InjectRepository(User) private readonly usersRepository: Repository<User>
   ) {}
 
-  async findAll(): Promise<User[]> {
+  async findAll() {
     try {
       return await this.usersRepository.find();
     } catch (error) {
@@ -21,7 +21,7 @@ export class UsersService {
     }
   }
 
-  async create(user: Partial<User>): Promise<User> {
+  async create(user: Partial<User>) {
     try {
       const newUser = this.usersRepository.create(user);
       return await this.usersRepository.save(newUser);
