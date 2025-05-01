@@ -41,9 +41,13 @@ export class UsersService {
   }
 
   // Méthode pour gérer la connexion (signIn) avec JWT
-  async signIn(credentials: { email: string; password: string }) {
+  async signIn(credentials: {
+    email: string;
+    password: string;
+    username: string;
+  }) {
     const user = await this.usersRepository.findOne({
-      where: { email: credentials.email },
+      where: [{ email: credentials.email }, { username: credentials.username }],
     });
 
     if (!user) {

@@ -30,7 +30,9 @@ export class UsersController {
   // Sign-in route for user authentication
   @Post("signin")
   @HttpCode(HttpStatus.OK)
-  async signIn(@Body() credentials: { email: string; password: string }) {
+  async signIn(
+    @Body() credentials: { email: string; password: string; username: string }
+  ) {
     return this.usersService.signIn(credentials);
   }
 }
