@@ -21,9 +21,16 @@ export class UsersController {
   }
 
   // Create route for creating a new user
-  @Post("create")
+  @Post("register")
   @HttpCode(HttpStatus.CREATED)
   async createUser(@Body() user: Partial<User>) {
     return this.usersService.create(user);
+  }
+
+  // Sign-in route for user authentication
+  @Post("signin")
+  @HttpCode(HttpStatus.OK)
+  async signIn(@Body() credentials: { email: string; password: string }) {
+    return this.usersService.signIn(credentials);
   }
 }
